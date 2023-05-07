@@ -16,6 +16,7 @@ import {
 } from "../constants/options";
 import { styled } from "@mui/material/styles";
 import { Button, Grid } from "@mui/material";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 const FormGroup = styled("div")(({ theme }) => ({
@@ -31,7 +32,7 @@ const FormTitle = styled("h1")(({ theme }) => ({
   marginBottom: theme.spacing(3),
 }));
 
-const Form = () => {
+const Form = ({ fetchDate }) => {
   const {
     register,
     handleSubmit,
@@ -47,8 +48,8 @@ const Form = () => {
     axios
       .post("https://onito-server-zffs.onrender.com/add-user", data)
       .then(() => {
-        console.log("data added");
         reset();
+        fetchDate();
         alert("Data added successfully");
       })
       .catch((err) => console.error(err));
@@ -318,6 +319,10 @@ const Form = () => {
       <Button type="submit">Submit</Button>
     </form>
   );
+};
+
+Form.propTypes = {
+  fetchDate: PropTypes.func,
 };
 
 export default Form;
