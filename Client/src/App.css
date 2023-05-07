@@ -1,0 +1,20 @@
+.App {
+  min-width: calc(100vw - 17px);
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.css-17tcgb {
+  justify-content: flex-start !important;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.css-a5rdam-MuiGrid-root > .MuiGrid-item {
+  padding-top: 0 !important;
+}
