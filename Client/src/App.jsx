@@ -6,6 +6,10 @@ import axios from "axios";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [update, setUpdate] = useState(false);
+  const fetchDate = () => {
+    setUpdate((prevVal) => !prevVal);
+  };
   useEffect(() => {
     axios
       .get("https://onito-server-zffs.onrender.com/fetch-users")
@@ -14,10 +18,10 @@ const App = () => {
         setData(response.data);
       })
       .catch((err) => console.error("Error while fetching data: ", err));
-  }, []);
+  }, [update]);
   return (
     <div className="App">
-      <Form />
+      <Form fetchDate={fetchDate} />
       <br />
       <br />
       <br />
